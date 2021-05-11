@@ -44,7 +44,7 @@ public class Loginglue{
 	public void user_Should_Get_Report_Page() throws Throwable {
 	  WebElement report=r_ele.reportelement();
 	  if(report.isDisplayed()){
-		  
+		  System.out.println("Report page Displayed");
 	  }
 	}
 	

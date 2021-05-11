@@ -1,6 +1,5 @@
-
 Feature: Login feature
-  Verify that user is able to login 
+  Verify that user is able to login
 
   
   Scenario: Login With Valid Data
@@ -10,8 +9,3 @@ Feature: Login feature
     When User Click On Login
     Then An Alert Is Present and Accept That
     Then User Should Get Report Page
-
- 
-
-
-   

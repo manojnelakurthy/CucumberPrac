@@ -7,7 +7,7 @@ import constants.Webdriver;
 
 public class Employeeelements extends Webdriver{
 	
-	private  WebElement empname,mobileno,address1,country,update;
+	private  WebElement empname,mobileno,address1,country,update,success;
 
 	public WebElement empelement(){
 		empname=driver.findElement(By.linkText("cullen"));
@@ -32,5 +32,9 @@ public class Employeeelements extends Webdriver{
 	public WebElement update(){
 		update=driver.findElement(By.name("submit"));
 		return update;
+	}
+	public WebElement messageele(){
+		success=driver.findElement(By.xpath("//font[@color='#008000']"));
+		return success;
 	}
 }

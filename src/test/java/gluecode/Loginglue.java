@@ -1,20 +1,27 @@
 package gluecode;
 
 import org.openqa.selenium.WebElement;
+
+import com.relevantcodes.extentreports.LogStatus;
+
 import common.Loginelements;
 import common.Reportelements;
+import constants.Report;
+import constants.Screenshot;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Loginglue{
+public class Loginglue extends Report{
 	 
 	  Loginelements ele=new Loginelements();
 	  Reportelements r_ele=new Reportelements();
+	 Screenshot ss=new Screenshot();
 	  
 	  @Given("^User Is On Login Page \"([^\"]*)\",\"([^\"]*)\"$")
 	  public void user_Is_On_Login_Page(String browser,String url) throws Throwable {
 	  ele.start(browser, url);
+	 test=startReport("Login Test");
 	  }
 
 	@Given("^User Enters Username \"([^\"]*)\"$")
@@ -42,10 +49,17 @@ public class Loginglue{
 
 	@Then("^User Should Get Report Page$")
 	public void user_Should_Get_Report_Page() throws Throwable {
-	  WebElement report=r_ele.reportelement();
-	  if(report.isDisplayed()){
-		  System.out.println("Report page Displayed");
+	  WebElement reportele=r_ele.reportelement();
+	  if(reportele.isDisplayed()){
+		 test.log(LogStatus.PASS, "Pass");
+		 ss.screenShot(test);
+		 
+	  }else{
+		  test.log(LogStatus.FAIL, "Fail");
+		  ss.screenShot(test);
+		
 	  }
+	  endReport(test);
 	}
 	
 }

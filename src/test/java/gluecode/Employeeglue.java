@@ -3,16 +3,24 @@ package gluecode;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+import com.relevantcodes.extentreports.ExtentReports;
+import com.relevantcodes.extentreports.ExtentTest;
+import com.relevantcodes.extentreports.LogStatus;
+
 import common.Employeeelements;
+import constants.Report;
+import constants.Screenshot;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class Employeeglue {
+public class Employeeglue extends Report{
 	Employeeelements emele=new Employeeelements();
+	 Screenshot ss=new Screenshot();
 	
 	@Given("^User Click On Employee Name$")
 	public void user_Click_On_Employee_Name() throws Throwable {
+		 test=startReport("Update Employee Test");
 	WebElement empele=emele.empelement();
 	empele.click();
 	}
@@ -51,6 +59,16 @@ public class Employeeglue {
 
 	@Then("^User Gets The Success Message$")
 	public void user_Gets_The_Success_Message() throws Throwable {
-	 
+	 WebElement success1=emele.messageele();
+	 if(success1.isDisplayed()){
+		 test.log(LogStatus.PASS, "Pass");
+		 ss.screenShot(test);
+		 
+	 }else{
+		 test.log(LogStatus.FAIL, "Fail");
+		 ss.screenShot(test);
+		
+	 }
+	 endReport(test);
 	}
 }

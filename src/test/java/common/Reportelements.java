@@ -12,7 +12,7 @@ public class Reportelements extends Webdriver{
 	private WebElement employeebutton;
 	private WebElement projectbutton;
 	private WebElement empsel;
-	private WebElement projsel;
+	private WebElement projsel,viewrepele;
 	private WebElement calendar,calendar1;
 	
 	public void acceptAlert(){
@@ -86,5 +86,9 @@ public class Reportelements extends Webdriver{
 	public WebElement viewReport(){
 		viewreport=driver.findElement(By.xpath("//input[@value='View Report']"));
 		return viewreport;
+	}
+	public WebElement viewreportsele(){
+		viewrepele=driver.findElement(By.linkText("cullen"));
+		return viewrepele;
 	}
 }

@@ -8,12 +8,8 @@ import constants.Webdriver;
 
 public class Reportelements extends Webdriver{
 
-	private WebElement report,viewreport;
-	private WebElement employeebutton;
-	private WebElement projectbutton;
-	private WebElement empsel;
-	private WebElement projsel,viewrepele;
-	private WebElement calendar,calendar1;
+	private WebElement report,viewreport,employeebutton,projectbutton,empsel,projsel,calendar,calendar1,viewrepele;
+	
 	
 	public void acceptAlert(){
 		driver.switchTo().alert().accept();

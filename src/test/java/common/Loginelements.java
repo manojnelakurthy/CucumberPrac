@@ -7,9 +7,8 @@ import constants.Webdriver;
 
 public class Loginelements extends Webdriver{
  
-	private WebElement username_ele;
-	private WebElement password_ele;
-	private WebElement login_ele;
+	private WebElement username_ele,password_ele,login_ele;
+
 	
 	public void start(String browser,String url){
 		launch(browser);
@@ -27,5 +26,8 @@ public class Loginelements extends Webdriver{
 	public WebElement clicklogin(){
 		login_ele=driver.findElement(By.name("login"));
 		return login_ele;
+	}
+	public String error(){
+		return driver.findElement(By.xpath("//font[@color='#FF0000']")).getText();
 	}
 }

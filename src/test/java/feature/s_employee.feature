@@ -2,7 +2,6 @@
    
    Scenario: Update Details
       Given User Click On Employee Name
-      Then User Get The Update Form
       Then User Enters Mobile Number "1245789"
       Then User Enters Address "Hyderabd"
       Then User Selects Country "India"

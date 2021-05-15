@@ -1,12 +1,16 @@
 package common;
 
+import java.util.HashMap;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import constants.ExcelData;
 import constants.Webdriver;
 
 public class Employeeelements extends Webdriver{
-	
+	ExcelData xldata=new ExcelData();
+	HashMap<String, String> data =null;
 	private  WebElement empname,mobileno,address1,country,update,success;
 
 	public WebElement empelement(){

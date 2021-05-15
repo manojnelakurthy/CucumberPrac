@@ -27,8 +27,7 @@ public class Loginglue extends Report{
 	@Given("^User Enters Username \"([^\"]*)\"$")
 	public void user_Enters_Username(String username){
 		try{
-	 WebElement username_ele=ele.enterUsername();
-	 username_ele.sendKeys(username);
+	ele.js_enteruname(username);
 		}catch(Exception e){
 		 
 	 }
@@ -37,8 +36,7 @@ public class Loginglue extends Report{
 	@Given("^User Enters Password \"([^\"]*)\"$")
 	public void user_Enters_Password(String password) {
 		try{
-		WebElement password_ele=ele.enterPassword();
-		password_ele.sendKeys(password);
+ele.js_enterpword(password);
 		}catch(Exception e){
 		}
 		}
@@ -47,8 +45,7 @@ public class Loginglue extends Report{
 	@When("^User Click On Login$")
 	public void user_Click_On_Login() throws Exception  {
 		try{
-	  WebElement login_ele=ele.clicklogin();
-	  login_ele.click();
+	  ele.js_clicklogin();
 		}catch(Exception e){
 			
 		}

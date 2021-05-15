@@ -19,8 +19,7 @@ public class Employeeglue extends Report{
 	@Given("^User Click On Employee Name$")
 	public void user_Click_On_Employee_Name(){
 		 test=startReport("Update Employee Test");
-	WebElement empele=emele.empelement();
-	empele.click();
+	emele.js_clickempelement();
 	}
 
 
@@ -28,14 +27,14 @@ public class Employeeglue extends Report{
 	public void user_Enters_Mobile_Number(String mobno)  {
 	 WebElement mno= emele.enterMobileNum();
 	 mno.clear();
-	 mno.sendKeys(mobno);
+	emele.js_entermobnumber(mobno);
 	}
 
 	@Then("^User Enters Address \"([^\"]*)\"$")
 	public void user_Enters_Address(String address1) {
 		 WebElement address=emele.enterAddress1();
 		 address.clear();
-		 address.sendKeys(address1);
+		emele.js_enteraddress(address1);
 	}
 
 	@Then("^User Selects Country \"([^\"]*)\"$")
@@ -47,8 +46,7 @@ public class Employeeglue extends Report{
 
 	@When("^User Click On Update Employee$")
 	public void user_Click_On_Update_Employee()  {
-	  WebElement updt=emele.update();
-	  updt.click();
+	 emele.js_clickupdate();
 	}
 
 	@Then("^User Gets The Success Message$")

@@ -5,12 +5,14 @@ import java.util.HashMap;
 import java.util.Set;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import constants.ExcelData;
 import constants.Webdriver;
 
 public class Reportelements extends Webdriver{
+	
 	ExcelData xldata=new ExcelData();
 	HashMap<String, String> data =null;
 	private WebElement report,viewreport,employeebutton,projectbutton,empsel,projsel,calendar,calendar1,viewrepele;
@@ -42,6 +44,18 @@ public class Reportelements extends Webdriver{
 		return employeebutton;
 	}
 	
+	 public void js_clickempbutton(){
+		 JavascriptExecutor js=(JavascriptExecutor)driver;
+		 try{
+				data=xldata.read();
+				value = data.get("empbutton");
+				employeebutton=driver.findElement(By.xpath(value));
+		 js.executeScript("arguments[0].click();",employeebutton);
+		 }catch(Exception e){
+			 
+		 }
+		 }
+	
 	public WebElement selectEmployee(){
 		try {
 			data=xldata.read();
@@ -53,6 +67,18 @@ public class Reportelements extends Webdriver{
 		return empsel;
 	}
 	
+	 public void js_selectemployee(String option){
+		 JavascriptExecutor js=(JavascriptExecutor)driver;
+		 try{
+				data=xldata.read();
+				value = data.get("empsel");
+				empsel=driver.findElement(By.id(value));
+		 js.executeScript("var select = arguments[0]; for(var i = 0; i < select.options.length; i++){ if(select.options[i].text == arguments[1]){ select.options[i].selected = true; } }", empsel, option);
+		 }catch(Exception e){
+			 
+		 }
+		 }
+	
 	public WebElement clickProjButton(){
 		try {
 			data=xldata.read();
@@ -63,6 +89,18 @@ public class Reportelements extends Webdriver{
 		}
 		return projectbutton;
 	}
+	
+	 public void js_clickprojbutton(){
+		 JavascriptExecutor js=(JavascriptExecutor)driver;
+		 try{
+				data=xldata.read();
+				value = data.get("projbutton");
+				projectbutton=driver.findElement(By.xpath(value));
+		 js.executeScript("arguments[0].click();",projectbutton);
+		 }catch(Exception e){
+			 
+		 }
+		 }
 	public WebElement selectproject(){
 		try {
 			data=xldata.read();
@@ -73,6 +111,17 @@ public class Reportelements extends Webdriver{
 		}
 		return projsel;
 	}
+	 public void js_selectproject(String option){
+		 JavascriptExecutor js=(JavascriptExecutor)driver;
+		 try{
+				data=xldata.read();
+				value = data.get("projsel");
+				projsel=driver.findElement(By.id(value));
+		 js.executeScript("var projsel = arguments[0]; for(var i = 0; i < projsel.options.length; i++){ if(projsel.options[i].text == arguments[1]){ projsel.options[i].selected = true; } }", projsel, option);
+		 }catch(Exception e){
+			 
+		 }
+		 }
 	public WebElement clickCalendar(){
 		try {
 			data=xldata.read();
@@ -83,6 +132,17 @@ public class Reportelements extends Webdriver{
 		}
 		return calendar;
 	}
+	 public void js_clickcalendar(){
+		 JavascriptExecutor js=(JavascriptExecutor)driver;
+		 try{
+				data=xldata.read();
+				value = data.get("calendar");
+				calendar=driver.findElement(By.id(value));
+		 js.executeScript("arguments[0].click();",calendar);
+		 }catch(Exception e){
+			 
+		 }
+		 }
 	
 	public void selectstartdate(String mnthyr,String dt){
 		try {
@@ -118,6 +178,17 @@ public class Reportelements extends Webdriver{
 			}
 			return calendar1;
 		}
+		 public void js_clickcalendar1(){
+			 JavascriptExecutor js=(JavascriptExecutor)driver;
+			 try{
+					data=xldata.read();
+					value = data.get("calendar1");
+					calendar1=driver.findElement(By.xpath(value));
+			 js.executeScript("arguments[0].click();",calendar1);
+			 }catch(Exception e){
+				 
+			 }
+			 }
 		
 	public void selectenddate(String mnthyr,String dt){
 		try {
@@ -151,6 +222,18 @@ public class Reportelements extends Webdriver{
 		}
 		return viewreport;
 	}
+	
+	 public void js_clickviewreport(){
+		 JavascriptExecutor js=(JavascriptExecutor)driver;
+		 try{
+				data=xldata.read();
+				value = data.get("viewreport");
+				viewreport=driver.findElement(By.xpath(value));
+		 js.executeScript("arguments[0].click();",viewreport);
+		 }catch(Exception e){
+			 
+		 }
+		 }
 	public WebElement viewreportsele(){
 		try {
 			data=xldata.read();

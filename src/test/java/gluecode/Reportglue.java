@@ -25,12 +25,11 @@ public class Reportglue extends Report{
 	}
 
 	@Given("^User Select Employee \"([^\"]*)\"$")
-	public void user_Select_Employee(String employeename)  {
-	WebElement employee=  r_ele.clickEmpButton();
-	employee.click();
-	WebElement empsel=r_ele.selectEmployee();
-	Select empdd=new Select(empsel);
-	empdd.selectByVisibleText(employeename);
+	public void user_Select_Employee(String employeename)   {
+	r_ele.js_clickempbutton();
+	WebElement emp=r_ele.selectEmployee();
+	Select empsel=new Select(emp);
+	empsel.selectByVisibleText(employeename);
 	}
 
 	@Given("^User Select Project \"([^\"]*)\"$")
@@ -44,22 +43,19 @@ public class Reportglue extends Report{
 
 	@Given("^User Select Start Date \"([^\"]*)\",\"([^\"]*)\"$")
 	public void user_Select_Start_Date(String monthyear,String date)  {
-	  WebElement calendar=r_ele.clickCalendar();
-	  calendar.click();
+	 r_ele.js_clickcalendar();
 	  r_ele.selectstartdate(monthyear, date);
 	}
 
 	@Given("^User Select End Date \"([^\"]*)\",\"([^\"]*)\"$")
 	public void user_Select_End_Date(String monthyear,String date) {
-		 WebElement calendar1=r_ele.clickCalendar1();
-		  calendar1.click();
+		r_ele.js_clickcalendar1();
 		r_ele.selectenddate(monthyear, date);
 	}
 
 	@When("^User Click On View Report$")
 	public void user_Click_On_View_Report()  {
-	  WebElement viewreports=r_ele.viewReport();
-	  viewreports.click();
+	r_ele.js_clickviewreport();
 	}
 
 	@Then("^Site Shows The Details Of Report$")

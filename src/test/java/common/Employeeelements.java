@@ -10,35 +10,72 @@ import constants.Webdriver;
 
 public class Employeeelements extends Webdriver{
 	ExcelData xldata=new ExcelData();
-	HashMap<String, String> data =null;
+	HashMap<String, String> data;
+	String value;
 	private  WebElement empname,mobileno,address1,country,update,success;
 
 	public WebElement empelement(){
-		empname=driver.findElement(By.linkText("cullen"));
+		try{
+			data=xldata.read();
+			value = data.get("details");
+		empname=driver.findElement(By.linkText(value));
+		}catch(Exception e){
+			
+		}
 		return empname;
 	}
 	
 	public WebElement enterMobileNum(){
-		mobileno=driver.findElement(By.name("mob_number"));
+		try{
+			data=xldata.read();
+			value = data.get("mobnum");
+		mobileno=driver.findElement(By.name(value));
+		}catch(Exception e){
+			
+		}
 		return mobileno;
 	}
 	
 	public WebElement enterAddress1(){
-		address1=driver.findElement(By.name("address1"));
+		try{
+			data=xldata.read();
+			value = data.get("address");
+		address1=driver.findElement(By.name(value));
+		}catch(Exception e){
+			
+		}
 		return address1;
 	}
 	
 	public WebElement selectCountry(){
-		country=driver.findElement(By.id("country"));
+		try{
+			data=xldata.read();
+			value = data.get("country");
+		country=driver.findElement(By.id(value));
+		}catch(Exception e){
+			
+		}
 		return country;
 	}
 	
 	public WebElement update(){
-		update=driver.findElement(By.name("submit"));
+		try{
+			data=xldata.read();
+			value = data.get("update");
+		update=driver.findElement(By.name(value));
+		}catch(Exception e){
+			
+		}
 		return update;
 	}
 	public WebElement messageele(){
-		success=driver.findElement(By.xpath("//font[@color='#008000']"));
+		try{
+			data=xldata.read();
+			value = data.get("message");
+		success=driver.findElement(By.xpath(value));
+	}catch(Exception e){
+			
+		}
 		return success;
 	}
 }

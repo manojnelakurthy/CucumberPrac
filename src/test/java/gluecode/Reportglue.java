@@ -20,12 +20,12 @@ public class Reportglue extends Report{
 	  Screenshot ss=new Screenshot();
 	  
 	@Given("^User Is On Report Page$")
-	public void user_Is_On_Report_Page() throws Throwable {
+	public void user_Is_On_Report_Page()  {
 		 test=startReport("View Report  Test");
 	}
 
 	@Given("^User Select Employee \"([^\"]*)\"$")
-	public void user_Select_Employee(String employeename) throws Throwable {
+	public void user_Select_Employee(String employeename)  {
 	WebElement employee=  r_ele.clickEmpButton();
 	employee.click();
 	WebElement empsel=r_ele.selectEmployee();
@@ -63,7 +63,8 @@ public class Reportglue extends Report{
 	}
 
 	@Then("^Site Shows The Details Of Report$")
-	public void site_Shows_The_Details_Of_Report() throws Exception {
+	public void site_Shows_The_Details_Of_Report() {
+		try{
 	   WebElement view=r_ele.viewreportsele();
 	   if(view.isDisplayed()){
 		   test.log(LogStatus.PASS, "Pass");
@@ -75,5 +76,8 @@ public class Reportglue extends Report{
 		  
 	   }
 	   endReport(test);
+		}catch(Exception e){
+			
+		}
 	}
 }

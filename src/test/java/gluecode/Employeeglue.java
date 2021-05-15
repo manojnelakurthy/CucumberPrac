@@ -52,7 +52,8 @@ public class Employeeglue extends Report{
 	}
 
 	@Then("^User Gets The Success Message$")
-	public void user_Gets_The_Success_Message() throws Exception  {
+	public void user_Gets_The_Success_Message() {
+		try{
 	 WebElement success1=emele.messageele();
 	 if(success1.isDisplayed()){
 		 test.log(LogStatus.PASS, "Pass");
@@ -64,5 +65,8 @@ public class Employeeglue extends Report{
 		
 	 }
 	 endReport(test);
+		}catch(Exception e){
+			
+		}
 	}
 }

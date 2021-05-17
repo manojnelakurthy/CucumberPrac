@@ -99,7 +99,7 @@ public class Employeeelements extends Webdriver{
 				data=xldata.read();
 				value = data.get("empsel");
 				country=driver.findElement(By.id(value));
-		 js.executeScript("var country = arguments[0]; for(var i = 0; i < country.options.length; i++){ if(country.options[i].text == arguments[1]){ country.options[i].selected = true; } }", country, option);
+		 js.executeScript("var country = arguments[0]; for(var i=0; i< country.options.length;i++){ if(country.options[i].text == arguments[1]){ country.options[i].selected = true; } }", country, option);
 		 }catch(Exception e){
 			 
 		 }

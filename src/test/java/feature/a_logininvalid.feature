@@ -13,6 +13,5 @@
     Examples:
 
     |username|password|
-    |manoj|manoj|
-    |aaa123|aaa123|
-    
+    |manoj|admin|
+    |admin|aaa123|  

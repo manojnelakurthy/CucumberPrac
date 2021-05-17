@@ -42,6 +42,7 @@ public class Employeeglue extends Report{
 	   WebElement coun=emele.selectCountry();
 	   Select counsel=new Select(coun);
 	   counsel.selectByVisibleText(country);
+	  // emele.js_selectemployee(country);
 	}
 
 	@When("^User Click On Update Employee$")

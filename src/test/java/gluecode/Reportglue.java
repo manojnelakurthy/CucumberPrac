@@ -2,7 +2,6 @@ package gluecode;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-
 import com.relevantcodes.extentreports.LogStatus;
 
 import common.Loginelements;
@@ -29,7 +28,8 @@ public class Reportglue extends Report{
 	r_ele.js_clickempbutton();
 	WebElement emp=r_ele.selectEmployee();
 	Select empsel=new Select(emp);
-	empsel.selectByVisibleText(employeename);
+    empsel.selectByVisibleText(employeename);
+	//r_ele.js_selectemployee(employeename);
 	}
 
 	@Given("^User Select Project \"([^\"]*)\"$")
@@ -39,6 +39,7 @@ public class Reportglue extends Report{
 		WebElement projsel=r_ele.selectproject();
 		Select projdd=new Select(projsel);
 		projdd.selectByVisibleText(projectname);
+		//r_ele.js_selectproject(projectname);
 	}
 
 	@Given("^User Select Start Date \"([^\"]*)\",\"([^\"]*)\"$")

@@ -1,4 +1,3 @@
-
 Feature: Login feature
   Verify that user is able to login
 

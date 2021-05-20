@@ -161,12 +161,11 @@ public class AllElements extends driverfactory{
 		}
 		return report;
 }
-	public WebElement clickEmployee(){
-		WebElement empbutton= null;
+	public WebElement clickempButton(){
+		WebElement empbutton = null;
 		try{
-			data=xldata.read();
-		locatorname=data.get("empbut").get(0);
-		locatorvalue=data.get("empbut").get(1);
+		locatorname=data.get("empbutton").get(0);
+		locatorvalue=data.get("empbutton").get(1);
 	
 		switch(locatorname){
 		case "id":
@@ -192,10 +191,9 @@ public class AllElements extends driverfactory{
 	public WebElement selectEmployee(){
 		WebElement empsel= null;
 		try{
-			data=xldata.read();
 		
-		locatorname=data.get("empsel").get(0);
-		locatorvalue=data.get("empsel").get(1);
+		 locatorname=data.get("empsel").get(0);
+		 locatorvalue=data.get("empsel").get(1);
 	
 		switch(locatorname){
 		case "id":
@@ -221,7 +219,6 @@ public class AllElements extends driverfactory{
 	public WebElement clickProj() {
 		WebElement projbut= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("projbutton").get(0);
 		locatorvalue=data.get("projbutton").get(1);
 	
@@ -249,7 +246,6 @@ public class AllElements extends driverfactory{
 	public WebElement selectProj() {
 		WebElement projsel= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("projsel").get(0);
 		locatorvalue=data.get("projsel").get(1);
 		switch(locatorname){
@@ -277,7 +273,6 @@ public class AllElements extends driverfactory{
 	public WebElement clickCalendar() {
 		WebElement calendar= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("calendar").get(0);
 		locatorvalue=data.get("calendar").get(1);
 		switch(locatorname){
@@ -305,7 +300,6 @@ public class AllElements extends driverfactory{
 	public WebElement calmonthyear() {
 		WebElement calmonthyear= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("calmonthyear").get(0);
 		locatorvalue=data.get("calmonthyear").get(1);
 		switch(locatorname){
@@ -333,7 +327,6 @@ public class AllElements extends driverfactory{
 	public WebElement clickNext() {
 		WebElement next= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("next").get(0);
 		locatorvalue=data.get("next").get(1);
 		switch(locatorname){
@@ -361,7 +354,6 @@ public class AllElements extends driverfactory{
 	public WebElement clickCalendar1() {
 		WebElement calendar1= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("calendar1").get(0);
 		locatorvalue=data.get("calendar1").get(1);
 		switch(locatorname){
@@ -389,7 +381,6 @@ public class AllElements extends driverfactory{
 	public WebElement viewReport() {
 		WebElement viewreport= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("viewreport").get(0);
 		locatorvalue=data.get("viewreport").get(1);
 		switch(locatorname){
@@ -417,7 +408,6 @@ public class AllElements extends driverfactory{
 	public WebElement detailsElement() {
 		WebElement details= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("details").get(0);
 		locatorvalue=data.get("details").get(1);
 		switch(locatorname){
@@ -445,7 +435,6 @@ public class AllElements extends driverfactory{
 	public WebElement enterMobNum() {
 		WebElement mobnum= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("mobnum").get(0);
 		locatorvalue=data.get("mobnum").get(1);
 		switch(locatorname){
@@ -473,7 +462,6 @@ public class AllElements extends driverfactory{
 	public WebElement enterAddress() {
 		WebElement address= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("address").get(0);
 		locatorvalue=data.get("address").get(1);
 		switch(locatorname){
@@ -501,7 +489,6 @@ public class AllElements extends driverfactory{
 	public WebElement enterCountry() {
 		WebElement country= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("country").get(0);
 		locatorvalue=data.get("country").get(1);
 		switch(locatorname){
@@ -529,7 +516,6 @@ public class AllElements extends driverfactory{
 	public WebElement clickUpdate() {
 		WebElement update= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("update").get(0);
 		locatorvalue=data.get("update").get(1);
 		switch(locatorname){
@@ -557,7 +543,6 @@ public class AllElements extends driverfactory{
 	public WebElement messageElement() {
 		WebElement message= null;
 		try{
-			data=xldata.read();
 		locatorname=data.get("message").get(0);
 		locatorvalue=data.get("message").get(1);
 		switch(locatorname){
@@ -584,7 +569,6 @@ public class AllElements extends driverfactory{
 }
 	public void selecAdate(String mnthyr,String dt){
 		try {
-			data=xldata.read();
 			String value = data.get("calmonthyear").get(1);
 			String value1 = data.get("next").get(1);
 		Set<String> windows=driver.getWindowHandles();

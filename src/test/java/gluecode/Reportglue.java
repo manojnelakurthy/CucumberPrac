@@ -22,7 +22,8 @@ public class Reportglue extends Report{
 
 	@Given("^User Select Employee \"([^\"]*)\"$")
 	public void user_Select_Employee(String employeename)  {
-    ele.clickEmployee().click();
+		WebElement employee=ele.clickempButton();
+         employee.click();
 	WebElement emp=ele.selectEmployee();
 	Select empsel=new Select(emp);
     empsel.selectByVisibleText(employeename);
@@ -42,8 +43,7 @@ public class Reportglue extends Report{
 
 	@Given("^User Select Start Date \"([^\"]*)\",\"([^\"]*)\"$")
 	public void user_Select_Start_Date(String monthyear,String date)  {
-ele.clickCalendar().click();
-	
+    ele.clickCalendar().click();
 	ele.selecAdate(monthyear, date);
 	}
 

@@ -15,7 +15,7 @@ public HashMap<String, List<String>> read() throws Exception {
 	XSSFWorkbook wb=null;
 	HashMap<String, List<String>> data1 = null;
 	try{
-	fi=new FileInputStream("E:\\WorkSpace\\Cucumber\\XLDATA\\DATA.xlsx");
+	fi=new FileInputStream("E:\\WorkSpace\\Cucumber\\XLDATA\\xldata.xlsx");
 	wb=new XSSFWorkbook(fi);
 	Sheet s=wb.getSheet("WebElement");
 	int rowcount=s.getLastRowNum();
@@ -30,7 +30,7 @@ public HashMap<String, List<String>> read() throws Exception {
 	}
 		
 }
-	
+	System.out.println(data1);
 	}catch(Exception e){
 		
 	}finally{
@@ -39,14 +39,14 @@ public HashMap<String, List<String>> read() throws Exception {
 	}
 	return data1;
 }
-/*public static void main(String[] args) throws Exception {
-	
+public static void main(String[] args) {
 	ExcelData data=new ExcelData();
 			try {
 				data.read();
-			} catch (IOException e) {
+				
+			}catch (Exception e) {
 			
 				e.printStackTrace();
 			} 
-}*/
+}
 }

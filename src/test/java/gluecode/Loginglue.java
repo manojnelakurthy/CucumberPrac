@@ -4,8 +4,7 @@ import org.openqa.selenium.WebElement;
 
 import com.relevantcodes.extentreports.LogStatus;
 
-import common.Loginelements;
-import common.Reportelements;
+import common.AllElements;
 import constants.Report;
 import constants.Screenshot;
 import cucumber.api.java.en.Given;
@@ -14,9 +13,8 @@ import cucumber.api.java.en.When;
 
 public class Loginglue extends Report{
 	 
-	  Loginelements ele=new Loginelements();
-	  Reportelements r_ele=new Reportelements();
 	 Screenshot ss=new Screenshot();
+	 AllElements ele=new AllElements();
 	
 	  @Given("^User Is On Login Page \"([^\"]*)\",\"([^\"]*)\"$")
 	  public void user_Is_On_Login_Page(String browser,String url)  {
@@ -25,37 +23,27 @@ public class Loginglue extends Report{
 	  }
 	
 	@Given("^User Enters Username \"([^\"]*)\"$")
-	public void user_Enters_Username(String username){
-		try{
-	ele.js_enteruname(username);
-		}catch(Exception e){
+	public void user_Enters_Username(String username) throws Exception{
+		ele.enterUsername().sendKeys(username);
 		 
 	 }
-	}
 
 	@Given("^User Enters Password \"([^\"]*)\"$")
 	public void user_Enters_Password(String password) {
-		try{
-ele.js_enterpword(password);
-		}catch(Exception e){
-		}
-		}
+		ele.enterpassword().sendKeys(password);
 	
-
+	}
 	@When("^User Click On Login$")
 	public void user_Click_On_Login() throws Exception  {
-		try{
-	  ele.js_clicklogin();
-		}catch(Exception e){
-			
-		}
+		ele.clickLogin().click();
+
 	}
 	
 	@Then("^User Gets Error Message \"([^\"]*)\"$")
 	public void user_Gets_Error_Message(String error) throws Exception {
 		try{
 		test1=startReport1("Invalid Login");
-	   String errmessage=ele.error();
+	   String errmessage=ele.error().getText();
 	   if(errmessage.equalsIgnoreCase(error)){
 		   test1.log(LogStatus.PASS, "Login Invalid test Pass");
 			 ss.screenShot(test1);
@@ -73,14 +61,14 @@ ele.js_enterpword(password);
 	@Then("^An Alert Is Present and Accept That$")
 	public void an_Alert_Is_Present_and_Accept_That() {
 		try{
-	  r_ele.acceptAlert();
+	ele.alertaccept();
 		}catch(Exception e){
 		}
 	}
 	@Then("^User Should Get Report Page$")
 	public void user_Should_Get_Report_Page() throws Exception  {
 		try{
-	  WebElement reportele=r_ele.reportelement();
+	  WebElement reportele=ele.reportelement();
 	  if(reportele.isDisplayed()){
 		 test.log(LogStatus.PASS, "Pass");
 		 ss.screenShot(test);

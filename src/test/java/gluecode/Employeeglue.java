@@ -5,6 +5,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.relevantcodes.extentreports.LogStatus;
 
+import common.AllElements;
 import common.Employeeelements;
 import constants.Report;
 import constants.Screenshot;
@@ -15,46 +16,46 @@ import cucumber.api.java.en.When;
 public class Employeeglue extends Report{
 	Employeeelements emele=new Employeeelements();
 	 Screenshot ss=new Screenshot();
+	 AllElements ele=new AllElements();
+	 WebElement ele1;
 	
 	@Given("^User Click On Employee Name$")
 	public void user_Click_On_Employee_Name(){
 		 test=startReport("Update Employee Test");
-	emele.js_clickempelement();
+	   ele.detailsElement().click();
 	}
 
 
 	@Then("^User Enters Mobile Number \"([^\"]*)\"$")
 	public void user_Enters_Mobile_Number(String mobno)  {
-	 WebElement mno= emele.enterMobileNum();
-	 mno.clear();
-	emele.js_entermobnumber(mobno);
+	ele.enterMobNum().clear();
+   ele.enterMobNum().sendKeys(mobno);
 	}
 
 	@Then("^User Enters Address \"([^\"]*)\"$")
 	public void user_Enters_Address(String address1) {
-		 WebElement address=emele.enterAddress1();
-		 address.clear();
-		emele.js_enteraddress(address1);
+		ele.enterAddress().clear();
+	    ele.enterAddress().sendKeys(address1);
 	}
 
 	@Then("^User Selects Country \"([^\"]*)\"$")
 	public void user_Selects_Country(String country)  {
-	   WebElement coun=emele.selectCountry();
-	   Select counsel=new Select(coun);
+	   ele1=ele.enterCountry();
+	   Select counsel=new Select(ele1);
 	   counsel.selectByVisibleText(country);
 	  // emele.js_selectemployee(country);
 	}
 
 	@When("^User Click On Update Employee$")
 	public void user_Click_On_Update_Employee()  {
-	 emele.js_clickupdate();
+	ele.clickUpdate().click();
 	}
 
 	@Then("^User Gets The Success Message$")
 	public void user_Gets_The_Success_Message() {
 		try{
-	 WebElement success1=emele.messageele();
-	 if(success1.isDisplayed()){
+	ele1=ele.messageElement();
+	 if(ele1.isDisplayed()){
 		 test.log(LogStatus.PASS, "Pass");
 		 ss.screenShot(test);
 		 

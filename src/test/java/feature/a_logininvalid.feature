@@ -14,4 +14,3 @@
 
     |username|password|
     |manoj|admin|
-    |admin|aaa123|  

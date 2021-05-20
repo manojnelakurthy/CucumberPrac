@@ -1,26 +1,27 @@
 package common;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import constants.ExcelData;
-import constants.Webdriver;
+import constants.driverfactory;
 
-public class Employeeelements extends Webdriver{
+public class Employeeelements extends driverfactory{
 	
-	ExcelData xldata=new ExcelData();
-	HashMap<String, String> data;
-	String value;
+	/*ExcelData xldata=new ExcelData();
+	HashMap<String, List<String>> data=null;
+	List<String> value;
 	private  WebElement empname,mobileno,address1,country,update,success;
 
 	public WebElement empelement(){
 		try{
 			data=xldata.read();
 			value = data.get("details");
-		empname=driver.findElement(By.linkText(value));
+		empname=driver.findElement(By.(value));
 		}catch(Exception e){
 			
 		}
@@ -135,5 +136,5 @@ public class Employeeelements extends Webdriver{
 			
 		}
 		return success;
-	}
+	}*/
 }

@@ -1,19 +1,21 @@
 package common;
 
 import java.util.HashMap;
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import constants.ExcelData;
-import constants.Webdriver;
+import constants.driverfactory;
 
-public class Loginelements extends Webdriver{
+public class Loginelements extends driverfactory{
 	
- ExcelData xldata=new ExcelData();
-	HashMap<String, String> data;
+ /*ExcelData xldata=new ExcelData();
+	HashMap<String,List<String>> data;
 	private WebElement username_ele,password_ele,login_ele;
-   String value;
+   List<String> value;
 	
 	public void start(String browser,String url){
 		launch(browser);
@@ -90,5 +92,5 @@ public class Loginelements extends Webdriver{
 			
 		}
 		return driver.findElement(By.xpath(value)).getText();
-	}
+	}*/
 }

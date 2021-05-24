@@ -11,7 +11,7 @@ import constants.driverfactory;
 
 public class AllElements extends driverfactory{
 	ExcelData xldata=new ExcelData();
-	HashMap<String, List<String>> data=null;
+	HashMap<String, List<String>> data=xldata.read();
 	String locatorname=null;
 	String locatorvalue=null;
 	
@@ -20,26 +20,32 @@ public class AllElements extends driverfactory{
 		driver.get(url);
 	}
 	
-	public WebElement enterUsername(){
-		WebElement uname = null;
+	
+	
+	public WebElement webElement(String keyValue){
+		WebElement element = null;
 		try{
-			data=xldata.read();
+			System.out.println();
+	
+			
+System.out.print(data.get(keyValue).get(0));	
+System.out.println(data.get(keyValue).get(1));	
 		
-		locatorname=data.get("username").get(0);
-		locatorvalue=data.get("username").get(1);
+		locatorname=data.get(keyValue).get(0);
+		locatorvalue=data.get(keyValue).get(1);
 	
 		switch(locatorname){
 		case "id":
-			uname=driver.findElement(By.id(locatorvalue));
+			element=driver.findElement(By.id(locatorvalue));
 			break;
 		case "name":
-			uname=driver.findElement(By.name(locatorvalue));
+			element=driver.findElement(By.name(locatorvalue));
 			break;
 		case "xpath":
-			uname=driver.findElement(By.xpath(locatorvalue));
+			element=driver.findElement(By.xpath(locatorvalue));
 			break;
 		case "linktext":
-			uname=driver.findElement(By.linkText(locatorvalue));
+			element=driver.findElement(By.linkText(locatorvalue));
 			break;
 			default:
 				break;
@@ -47,7 +53,7 @@ public class AllElements extends driverfactory{
 		}catch(Exception e){
 			
 		}
-		return uname;
+		return element;
 }
 	public WebElement enterpassword(){
 		WebElement pword = null;

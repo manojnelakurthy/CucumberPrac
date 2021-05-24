@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import com.relevantcodes.extentreports.LogStatus;
 
 import common.AllElements;
+import constants.ExcelData;
 import constants.Report;
 import constants.Screenshot;
 import cucumber.api.java.en.Given;
@@ -14,28 +15,29 @@ import cucumber.api.java.en.When;
 public class Loginglue extends Report{
 	 
 	 Screenshot ss=new Screenshot();
-	 AllElements ele=new AllElements();
+	
+	 AllElements allElements=new AllElements();
 	
 	  @Given("^User Is On Login Page \"([^\"]*)\",\"([^\"]*)\"$")
 	  public void user_Is_On_Login_Page(String browser,String url)  {
-	  ele.start(browser, url);
+		  allElements.start(browser, url);
 	 test=startReport("Login Test");
 	  }
 	
 	@Given("^User Enters Username \"([^\"]*)\"$")
 	public void user_Enters_Username(String username) throws Exception{
-		ele.enterUsername().sendKeys(username);
+		allElements.webElement("username").sendKeys(username);
 		 
 	 }
 
 	@Given("^User Enters Password \"([^\"]*)\"$")
 	public void user_Enters_Password(String password) {
-		ele.enterpassword().sendKeys(password);
+		allElements.webElement("password").sendKeys(password);
 	
 	}
 	@When("^User Click On Login$")
 	public void user_Click_On_Login() throws Exception  {
-		ele.clickLogin().click();
+		allElements.webElement("login").click();
 
 	}
 	
@@ -43,7 +45,7 @@ public class Loginglue extends Report{
 	public void user_Gets_Error_Message(String error) throws Exception {
 		try{
 		test1=startReport1("Invalid Login");
-	   String errmessage=ele.error().getText();
+	   String errmessage=allElements.error().getText();
 	   if(errmessage.equalsIgnoreCase(error)){
 		   test1.log(LogStatus.PASS, "Login Invalid test Pass");
 			 ss.screenShot(test1);
@@ -61,14 +63,14 @@ public class Loginglue extends Report{
 	@Then("^An Alert Is Present and Accept That$")
 	public void an_Alert_Is_Present_and_Accept_That() {
 		try{
-	ele.alertaccept();
+			allElements.alertaccept();
 		}catch(Exception e){
 		}
 	}
 	@Then("^User Should Get Report Page$")
 	public void user_Should_Get_Report_Page() throws Exception  {
 		try{
-	  WebElement reportele=ele.reportelement();
+	  WebElement reportele=allElements.reportelement();
 	  if(reportele.isDisplayed()){
 		 test.log(LogStatus.PASS, "Pass");
 		 ss.screenShot(test);

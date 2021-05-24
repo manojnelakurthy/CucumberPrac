@@ -1,6 +1,7 @@
 package constants;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,11 +10,14 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelData {
-
-public HashMap<String, List<String>> read() throws Exception {
+	public HashMap<String, List<String>> data1 = null;
+	public ExcelData() {
+		read();
+	}
+public HashMap<String, List<String>> read() {
 	FileInputStream fi=null;
 	XSSFWorkbook wb=null;
-	HashMap<String, List<String>> data1 = null;
+	
 	try{
 	fi=new FileInputStream("E:\\WorkSpace\\Cucumber\\XLDATA\\xldata.xlsx");
 	wb=new XSSFWorkbook(fi);
@@ -34,8 +38,14 @@ public HashMap<String, List<String>> read() throws Exception {
 	}catch(Exception e){
 		
 	}finally{
-		wb.close();
-		fi.close();
+		try {
+			wb.close();
+			fi.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 	return data1;
 }
